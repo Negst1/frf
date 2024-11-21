@@ -26,14 +26,23 @@
     margin-bottom: 49px;
 }
 
+.nameService-wrap{
+    display: flex;
+}
+
+.nameService{
+    width: 400px;
+}
+
 .nameService-label{
-    min-width: 178px;
-    max-width: 202px;
+   
+    width: 400px;
+    min-height: 40px;
 }
 
 .nameService-input{
     max-width: 367px;
-    height: 38px;
+    height: 50px;
     border: 1px solid #D1D5DB;
     border-radius: 6px;
     background-color: #FFFFFF;
@@ -65,10 +74,17 @@
 .typeAndSumm-content{
     display:flex;
     text-align: start;
+    margin-bottom: 49px;
 }
 
 .typeAndSumm-title{
     display: flex;
+    width: 400px;
+    min-height: 40px;
+}
+
+.labelsError-wrap{
+    display: block;
 }
 
 .typeAndSumm-label{
@@ -109,22 +125,19 @@ input[type="radio"]:checked{
     background-position: center;
 }
 
-/* Изменение фона и границы при активации чекбокса */
-.typeAndSumm-checkbox:checked {
-
-}
-
-
 /* Стили для контейнера с классом beActive */
 .beActive-content{
+    display: flex;
+    width: 100%;
     text-align: start;
 }
 
 .beActive-title {
-    display: flex;
+    display: block;
     align-items: center;
     font-size: 16px; /* Размер шрифта */
-    
+    width: 400px;
+    min-height: 40px;
 }
 
 
@@ -243,6 +256,12 @@ input:checked + .slider:before {
      border-color: #1E40AF; 
 }
 
+.error-text{
+    display: block;
+    color: red;
+    font-size: 10px;
+}
+
 .errorWindow{
     position: absolute;
     top: 5px;
@@ -252,5 +271,12 @@ input:checked + .slider:before {
 @media(max-width: 450px){
     .nameService-select{
         min-width: 150px;
+    }
+
+    .nameService{
+        width: 150px;
+    }
+    .nameService-wrap{
+        display: block;
     }
 }

@@ -28,6 +28,8 @@
 }
 
 .service-name{
+    max-width: 400px;
+    overflow-wrap: break-word;
     text-align: left;
 }
 
@@ -223,6 +225,13 @@
     color: white;
 }
 
+
+@media(max-width: 1200px){
+    .service-name{
+     max-width: 200px;
+    } 
+ }
+
 /* Адаптив под мобильные устройства */
 
 @media(max-width: 450px){
@@ -270,7 +279,7 @@
         
     }
     .service-btn__area{
-        border-left: 0px;
+        border-left: 0px ;
     }
 
     .service-price__wrap{
@@ -324,4 +333,8 @@
         margin-right: 12px;
     }
 
+    .modal-content {
+        min-width: 200px;
+
+    }
 }

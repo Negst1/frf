@@ -23,8 +23,7 @@
 }
 
 .nameService-label{
-    min-width: 178px;
-    max-width: 202px;
+    width: 400px;
 }
 
 .nameService-input{

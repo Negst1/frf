@@ -55,103 +55,116 @@ const CreateService = ({ saveService, editingService, setEditingService }) => {
 
   return (
     <section className="createServices-section">
+
       <div className="createServices-content">
         <div className="createServices-title">
           {editingService ? "Редактирование услуги" : "Создание услуги"}
         </div>
 
-        {/* Поле наименования */}
-        <div className="nameService-content">
-          <label className="nameService-label">
-            Наименование услуги*
-            <input 
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className={`nameService-input ${errors.name ? "error" : ""}`}
-              placeholder="Введите наименование услуги"
-            />
-
-            {errors.name && <span className="error-text">{errors.name}</span>}
-          </label>
-        </div>
-
-        {/* Тип и сумма оплаты */}
-        <div className="typeAndSumm-content">
-          <label className="typeAndSumm-title">Тип и сумма оплаты*</label>
-          <div className="typeAndSumm-labels">
-            
-            <label className="typeAndSumm-label">
-              <div className="typeAndSumm-checkbox__border">
-                <input
-                  type="radio"
-                  checked={paymentType === "agreement"}
-                  onChange={() => {
-                    setPaymentType("agreement");
-                    setPrice("");
-                  }}
-                />
+        <div className="createServices-wrap">
+          {/* Поле наименования */}
+          
+          
+          <div className="nameService-content">
+                <div className="nameService-wrap">
+                    <label className="nameService-label">
+                      Наименование услуги*
+                    </label>
+                    <div className="labelAndError-wrap">
+                    <input 
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className={`nameService-input ${errors.name ? "error" : ""}`}
+                    placeholder="Введите наименование услуги"
+                    />
+                  
+                  {errors.name && <span className="error-text">{errors.name}</span>}
+                  </div>
                 </div>
-                По договоренности
-            </label>
-            <label className="typeAndSumm-label">
-              <div className="typeAndSumm-checkbox__border">
-                <input
-                  type="radio"
-                  checked={paymentType === "hourly"}
-                  onChange={() => setPaymentType("hourly")}
-                />
-              </div>
-              Почасовая оплата
-              {paymentType === "hourly" && (
-              
-                <input
-                  type="number"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  className={`typeAndSumm-input ${errors.price ? "error" : ""}`}
-                  placeholder="Сумма ($/час)"
-                />
-              )}
-            </label>
-            <label className="typeAndSumm-label">
-              <div className="typeAndSumm-checkbox__border">
-                <input
-                  type="radio"
-                  checked={paymentType === "volume"}
-                  onChange={() => setPaymentType("volume")}
-                />
-              </div>
-              Оплата по объему работ
-              {paymentType === "volume" && (
-                <input
-                  type="number"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  className={`typeAndSumm-input ${errors.price ? "error" : ""}`}
-                  placeholder="Сумма ($)"
-                />
-              )}
-            </label>
-          </div>
-          {errors.price && <span className="error-text">{errors.price}</span>}
-        </div>
-
-        {/* Переключатель активности */}
-        <div className="beActive-content">
-          <label className="beActive-title">
-            Активность
-            <div className="switch">
-              <input
-                type="checkbox"
-                checked={isActive}
-                onChange={(e) => setIsActive(e.target.checked)}
-              />               
-              <span className="slider"></span>
             </div>
-          </label>
-        </div>
+              
+            {/* Тип и сумма оплаты */}
+            <div className="typeAndSumm-content">
+              <label className="typeAndSumm-title">Тип и сумма оплаты*</label>
+              <div className="labelsError-wrap">
+              <div className="typeAndSumm-labels">
+                
+                <label className="typeAndSumm-label">
+                  <div className="typeAndSumm-checkbox__border">
+                    <input
+                      type="radio"
+                      checked={paymentType === "agreement"}
+                      onChange={() => {
+                        setPaymentType("agreement");
+                        setPrice("");
+                      }}
+                    />
+                    </div>
+                    По договоренности
+                </label>
+                <label className="typeAndSumm-label">
+                  <div className="typeAndSumm-checkbox__border">
+                    <input
+                      type="radio"
+                      checked={paymentType === "hourly"}
+                      onChange={() => setPaymentType("hourly")}
+                    />
+                  </div>
+                  Почасовая оплата
+                  {paymentType === "hourly" && (
+                  
+                    <input
+                      type="number"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      className={`typeAndSumm-input ${errors.price ? "error" : ""}`}
+                      placeholder="Сумма ($/час)"
+                    />
+                  )}
+                </label>
+                <label className="typeAndSumm-label">
+                  <div className="typeAndSumm-checkbox__border">
+                    <input
+                      type="radio"
+                      checked={paymentType === "volume"}
+                      onChange={() => setPaymentType("volume")}
+                    />
+                  </div>
+                  Оплата по объему работ
+                  {paymentType === "volume" && (
+                    <input
+                    type="number"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    className={`typeAndSumm-input ${errors.price ? "error" : ""}`}
+                      placeholder="Сумма ($)"
+                      />
+                  )}
+                </label>
+              
+              </div>
+              {errors.price && <span className="error-text">{errors.price}</span>}
+              </div>
+            </div>
 
+            {/* Переключатель активности */}
+
+            <div className="beActive-content">
+              <label className="beActive-title">
+                Активность
+                  <div className="switch">
+                    <input
+                      type="checkbox"
+                      checked={isActive}
+                      onChange={(e) => setIsActive(e.target.checked)}
+                    />               
+                    <span className="slider"></span>
+                  </div>
+                </label>
+            </div>
+            
+          </div>
         {/* Кнопки */}
         <div className="createService-btnsArea">
           <div className="btn-cancel__border">

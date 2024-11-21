@@ -9,3 +9,14 @@
     min-height: 100vh;
     background-color: #1B2852;
 }
+
+@media(max-width: 1200px){
+    .sidebar{
+        min-width: 150px;
+
+    }
+    .sidebar-wrap{
+        min-width: 150px;
+
+    }
+ }
